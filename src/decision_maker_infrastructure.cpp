@@ -57,7 +57,10 @@ DecisionMakerInfrastructure::needs_replan( const std::optional<map::Route>& rout
 {
   if( !route )
     return true;
-  const double s = route->get_s( start_state );
+  auto s_opt = route->get_s( start_state, route_replan_dist );
+  if( !s_opt.has_value() )
+    return true;
+  double s = s_opt.value();
   return route->reference_line.empty() || ( route->get_length() > 0.0 && s >= route->get_length() - route_replan_dist );
 }
 
