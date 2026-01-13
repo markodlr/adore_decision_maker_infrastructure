@@ -16,7 +16,7 @@
 #include <chrono>
 #include <iostream>
 
-#include <planning/planning_helpers.hpp>
+#include <planning/common/planning_helpers.hpp>
 #include <std_msgs/msg/string.hpp>
 
 using namespace std::chrono_literals;
